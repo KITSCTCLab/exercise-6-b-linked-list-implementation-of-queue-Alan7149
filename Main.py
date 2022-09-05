@@ -11,12 +11,34 @@ class Queue:
 
   def enqueue(self, data) -> None:
     # Write your code here
+    temp = Node(data)
+    if self.rear == None:
+      self.front = self.rear =temp
+      return
+    self.rear.next = temp
+    self.ear = temp
+    
 
   def dequeue(self) -> None:
     # Write your code here
+    if self.rear == None:
+      return
+    temp = self.front
+    self.front = temp.next
+    
+    if(self.front == None):
+      self.rear = None
 
   def status(self) -> None:
     # Write your code here
+    result = ""
+    temp = self.top
+    while temp.next != None:
+      print(temp.data,end="=>")
+      temp = temp.next
+    if temp.next == None:
+      print(temp.data,end="=>")
+      print(temp.next)
 
 
 # Do not change the following code
